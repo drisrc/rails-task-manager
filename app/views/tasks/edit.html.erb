@@ -1,0 +1,23 @@
+<%= form_with model: @task do |f| %>
+  <div class="form-group">
+    <h3><%= f.label :title %></h3>
+    <%= f.text_field :title, class: 'form-control' %>
+  </div>
+  <br>
+  <div class="form-group">
+    <h3><%= f.label :details %></h3>
+    <%= f.text_field :details, class: 'form-control' %>
+  </div>
+  <br>
+  <% unless f.object.new_record? %>
+    <div class="checkbox">
+      <label>
+        <%= f.check_box :completed %> Completed
+      </label>
+    </div>
+  <% end %>
+  <br>
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>
+<hr>
+<%= link_to "Back to list", tasks_path %>
